@@ -17,3 +17,7 @@ Thumbs.db
 # Node.js dependencies
 node_modules/
 webdashboard/frontend/node_modules/
+
+# Firebase and sensitive data
+detection/firebase-adminsdk.json
+detection/.env
