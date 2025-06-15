@@ -1,0 +1,19 @@
+# Ignore virtual environments
+venv/
+detection/venv/
+
+# VS Code settings
+.vscode/
+
+# Python cache files
+__pycache__/
+*.pyc
+
+# OS files
+.DS_Store
+Thumbs.db
+
+
+# Node.js dependencies
+node_modules/
+webdashboard/frontend/node_modules/

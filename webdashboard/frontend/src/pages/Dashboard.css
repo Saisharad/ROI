@@ -1,0 +1,16 @@
+/* src/pages/Dashboard.css */
+.dashboard {
+  padding: 2rem;
+  font-family: Arial, sans-serif;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.snapshot-grid {
+  display: flex;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Intrusion Detection Dashboard</title>
+     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Live Feed</h2>
+    <img src="{{ url_for('video_feed') }}" width="640" height="480">
+    
+    <h2>Intrusion Snapshots</h2>
+    <ul>
+        {% for snap in snapshots %}
+        <li><img src="{{ url_for('get_snapshot', filename=snap) }}" width="320"></li>
+        {% endfor %}
+    </ul>
+
+    <!-- Audio alert -->
+    <audio id="alertSound" src="{{ url_for('static', filename='alert.ogg') }}" preload="auto"></audio>
+
+    <script>
+        const evtSource = new EventSource("/events");
+        const alertSound = document.getElementById("alertSound");
+
+        evtSource.onmessage = function(event) {
+            if (event.data === "intrusion") {
+                alertSound.play().catch(e => console.log("Audio play failed:", e));
+            }
+        };
+    </script>
+</body>
+</html>
